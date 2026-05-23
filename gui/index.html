@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FileUtility System</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="logo">
+                <h2>FileUtility<span class="highlight">.</span></h2>
+            </div>
+            <ul class="nav-links">
+                <li class="active" data-target="encrypt-tab">Encryption</li>
+                <li data-target="search-tab">Search</li>
+                <li data-target="merge-tab">Merge Files</li>
+                <li data-target="organize-tab">Organizer</li>
+            </ul>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="content">
+            <!-- Encryption Tab -->
+            <section id="encrypt-tab" class="tab-content active">
+                <div class="header">
+                    <h1>File Encryption</h1>
+                    <p>Securely encrypt or decrypt your files using XOR or Shift algorithms.</p>
+                </div>
+                <div class="form-card glass-panel">
+                    <div class="input-group">
+                        <label>Input File</label>
+                        <div class="file-input-wrapper">
+                            <input type="text" id="enc-input" placeholder="Select a file..." readonly>
+                            <button class="btn browse-btn" onclick="browseFile('enc-input', false)">Browse</button>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label>Output File</label>
+                        <div class="file-input-wrapper">
+                            <input type="text" id="enc-output" placeholder="Select output location..." readonly>
+                            <button class="btn browse-btn" onclick="browseFile('enc-output', true)">Browse</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-group">
+                            <label>Method</label>
+                            <select id="enc-method">
+                                <option value="xor">XOR</option>
+                                <option value="shift">Shift</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label>Action</label>
+                            <select id="enc-action">
+                                <option value="encrypt">Encrypt</option>
+                                <option value="decrypt">Decrypt</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label>Key / Shift Value</label>
+                        <input type="text" id="enc-key" placeholder="Enter secret key or numeric shift">
+                    </div>
+                    <button class="btn primary-btn" onclick="runEncryption()">Execute</button>
+                    <div id="enc-result" class="result-msg"></div>
+                </div>
+            </section>
+
+            <!-- Search Tab -->
+            <section id="search-tab" class="tab-content">
+                <div class="header">
+                    <h1>Text Search Engine</h1>
+                    <p>Quickly search for words or phrases within a text file.</p>
+                </div>
+                <div class="form-card glass-panel">
+                    <div class="input-group">
+                        <label>Target File</label>
+                        <div class="file-input-wrapper">
+                            <input type="text" id="search-input" placeholder="Select a text file..." readonly>
+                            <button class="btn browse-btn" onclick="browseFile('search-input', false)">Browse</button>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label>Search Query</label>
+                        <input type="text" id="search-query" placeholder="Enter word or phrase...">
+                    </div>
+                    <button class="btn primary-btn" onclick="runSearch()">Search</button>
+                    <div id="search-result" class="result-box hidden"></div>
+                </div>
+            </section>
+
+            <!-- Merge Tab -->
+            <section id="merge-tab" class="tab-content">
+                <div class="header">
+                    <h1>File Merge Utility</h1>
+                    <p>Combine multiple files into a single continuous file.</p>
+                </div>
+                <div class="form-card glass-panel">
+                    <div class="input-group">
+                        <label>Input Files</label>
+                        <div class="file-list-wrapper">
+                            <div id="merge-file-list" class="file-list"></div>
+                            <button class="btn outline-btn" onclick="addMergeFiles()">+ Add Files</button>
+                        </div>
+                    </div>
+                    <button class="btn primary-btn" onclick="runMerge()">Merge & Save As...</button>
+                    <div id="merge-result" class="result-msg hidden"></div>
+                </div>
+            </section>
+
+            <!-- Organize Tab -->
+            <section id="organize-tab" class="tab-content">
+                <div class="header">
+                    <h1>File Organizer</h1>
+                    <p>Automatically sort files into categorical folders.</p>
+                </div>
+                <div class="form-card glass-panel">
+                    <div class="input-group">
+                        <label>Target Directory</label>
+                        <div class="file-input-wrapper">
+                            <input type="text" id="org-dir" placeholder="Select directory to organize..." readonly>
+                            <button class="btn browse-btn" onclick="browseDirectory('org-dir')">Browse</button>
+                        </div>
+                    </div>
+                    <button class="btn primary-btn" onclick="runOrganizer()">Organize</button>
+                    <div id="org-result" class="result-msg"></div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="renderer.js"></script>
+</body>
+</html>

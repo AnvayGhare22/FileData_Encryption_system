@@ -28,8 +28,18 @@ bool organizeDirectory(const char* targetDir) {
                     folderName = "Audio";
                 } else if (_stricmp(ext, ".zip") == 0 || _stricmp(ext, ".rar") == 0 || _stricmp(ext, ".7z") == 0) {
                     folderName = "Archives";
-                } else if (_stricmp(ext, ".c") == 0 || _stricmp(ext, ".cpp") == 0 || _stricmp(ext, ".h") == 0) {
+                } else if (_stricmp(ext, ".c") == 0 || _stricmp(ext, ".cpp") == 0 || _stricmp(ext, ".h") == 0 || _stricmp(ext, ".py") == 0 || _stricmp(ext, ".js") == 0 || _stricmp(ext, ".html") == 0 || _stricmp(ext, ".css") == 0) {
                     folderName = "Source Code";
+                } else if (_stricmp(ext, ".xls") == 0 || _stricmp(ext, ".xlsx") == 0 || _stricmp(ext, ".csv") == 0) {
+                    folderName = "Spreadsheets";
+                } else if (_stricmp(ext, ".ppt") == 0 || _stricmp(ext, ".pptx") == 0) {
+                    folderName = "Presentations";
+                } else if (_stricmp(ext, ".exe") == 0 || _stricmp(ext, ".msi") == 0 || _stricmp(ext, ".bat") == 0) {
+                    folderName = "Executables";
+                } else if (_stricmp(ext, ".ttf") == 0 || _stricmp(ext, ".otf") == 0) {
+                    folderName = "Fonts";
+                } else if (_stricmp(ext, ".obj") == 0 || _stricmp(ext, ".stl") == 0 || _stricmp(ext, ".fbx") == 0) {
+                    folderName = "3D Models";
                 }
 
                 char newDirPath[MAX_PATH];

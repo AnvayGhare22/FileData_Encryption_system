@@ -1,0 +1,58 @@
+# ====================================================================
+# File Utility System - Git Ignore Configuration
+# ====================================================================
+
+# --- Compiled C Binaries & Objects ---
+*.exe
+*.o
+*.obj
+*.dll
+*.so
+*.dylib
+*.out
+FileUtility.exe
+encryption_tool.exe
+
+# --- Archives & Built Packages ---
+*.zip
+*.tar
+*.gz
+*.rar
+*.7z
+EncryptionGUI_App.zip
+FileUtility_Standalone.zip
+
+# --- Electron Build & Package Outputs ---
+out/
+dist/
+build/
+bin/
+obj/
+
+# --- Dependency Directories ---
+node_modules/
+
+# --- Local Log Files ---
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# --- IDEs, Editors & OS Files ---
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+*.suo
+*.user
+*.userossc
+*.sln.docstates
+
+# --- Local Temporary and Test Files ---
+input.txt
+test.txt
+test_enc.txt
+New folder/
+temp/
+tmp/
